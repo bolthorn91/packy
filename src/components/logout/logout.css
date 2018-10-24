@@ -1,0 +1,20 @@
+ul, li{
+    display: inline-block;
+    text-decoration: none;
+
+}
+
+
+.stickyBar{
+    display: flex;
+}
+
+.logNav{
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
+}
+
+.logo{
+    align-self: center;
+}

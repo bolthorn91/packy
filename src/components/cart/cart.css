@@ -1,0 +1,46 @@
+/*::-webkit-scrollbar { 
+    display: none; 
+}*/
+
+.container{
+    position: fixed;
+    top:0;
+    right:0;
+    font-size: 12   px;
+    color:#fff;
+    background-color: black;
+    max-height: 50vh;
+    overflow:hidden;
+}
+
+
+.head{
+    border-bottom: 1px solid #fff;
+
+}
+
+
+p{
+    display: inline-block;
+}
+
+
+ul, li{
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-decoration: none;
+}
+
+li{
+    padding:5px 20px;
+}
+
+.products{
+    overflow-y: scroll;
+}
+
+.product{
+    border-bottom: 2px solid #fff;
+}
+
