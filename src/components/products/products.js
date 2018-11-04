@@ -1,16 +1,14 @@
 import store from '../../store'
-import cart from '@/components/cart/cart.vue'
 
 
 export default {
   name: 'productsComponent',
-  components:{
-    cart
-  },
+
   computed: {
-    products() {
-      return store.getters.getProducts;
-    }
+    farms() {
+      return store.getters.getFarms
+    },
+
   },
 
   data() {
@@ -19,12 +17,12 @@ export default {
   },
 
   methods: {
-    addProduct(obj) {
-      return store.commit('addProduct', obj)
+    addPackage (pack, farm) {
+      return store.commit('addPackage',{pack, farm})
     },
 
-    subtractProduct(obj) {
-      return store.commit('subtractProduct', obj)
+    subtractPackage (pack, farm) {
+      return store.commit('subtractPackage', {pack, farm})
     },
 
   },

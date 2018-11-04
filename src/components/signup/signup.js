@@ -1,7 +1,7 @@
 import store from '../../store'
 
 export default {
-  name: 'signIn',
+  name: 'signup',
   computed: {
     products() {
       return store.state.products;

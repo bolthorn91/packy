@@ -1,22 +1,30 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/products">Products</router-link>
-      <router-link to="/cart"></router-link>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Packy</ion-title>
+      <router-link to="/" name="Home">Home</router-link> |
+      <router-link to="/products">Products</router-link> |
       <div class="logo">
         <p>Aqui va el logito to wapo</p>
       </div>
       <div class="logginNav">
-        <router-link to="/login" v-if="!loggedIn">Sign In</router-link>
-        <router-link to="/login" v-if="!loggedIn">Sign Up</router-link>
+        <router-link to="/cart" v-if="loggedIn">cart</router-link> |
+        <router-link to="/login" v-if="!loggedIn">Sign In</router-link> |
+        <router-link to="/signup" v-if="!loggedIn">Sign Up</router-link> |
         <router-link to="/logout" v-if="loggedIn" @click.native="logOut()">Log Out</router-link>
       </div>
+      </ion-toolbar>
+    </ion-header>
       
 
     </div>
 
-    <router-view/>
+
+    <ion-app>
+      <router-view/>
+    </ion-app>
 
   </div>
 </template>
@@ -43,6 +51,8 @@ export default {
 }
 </script>
 
+<style src="./assets/main.css"></style>
+
 <style>
 body,
 html {
@@ -54,6 +64,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  color: #2c3e50;
 }
 
 #app {
@@ -68,7 +79,7 @@ a {
 #nav {
   display: flex;
   align-items: center;
-  padding: 30px;
+  flex-direction: column;
 }
 
 #nav a {
@@ -83,4 +94,5 @@ a {
 .logginNav{
   justify-self: flex-end;
 }
+
 </style>

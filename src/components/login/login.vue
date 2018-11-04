@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+
         <div class="form">
             <form action="" method="POST">
                 <h3>Email</h3>
@@ -11,6 +12,7 @@
             </div>
             </form>
         </div>
+
 
     </div>
 </template>

@@ -5,21 +5,17 @@
                 <h2 class="cross">X</h2>
         </div>
         <div class="products">
-            <ul>
-                <li class="title" v-for="product in products">
-                    <div class="product">
-                        <h4>{{product.name}}</h4>
-                        <p>cantidad: {{product.quantity}}</p>
-                        <p>precio/unidad: {{product.price}}</p>
-                        <p>perico total: {{product.price*product.quantity}}</p>
-                    </div>
-                </li>
+            <p>me cago en to</p>
+        <div v-for="packs in packsAdded">
+            <p>Packs: {{packs}}</p>
+               <p>Packs: {{packs.name}}</p>
+               <p>Packs: {{packs.number}}</p>
+            </div>
                 <h3 class='total'>TOTAL: </h3>
-            </ul>
         </div>
         <div class="btns">
-            <a href="" class="btn buy"><h2>Realizar Compra</h2></a>
-            <a href="" class="btn cancel"><h2>Cancelar Compra</h2></a>
+            <a href="" class="btn btn-primary">Realizar Compra</a>
+            <a href="" class="btn btn-primary">Cancelar Compra</a>
         </div>
     </div>
 </template>

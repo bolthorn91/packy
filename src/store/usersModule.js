@@ -6,9 +6,8 @@ export const usersModule = {
 
     //Fake. Should be HTTP request to DB
     users: [
-      { name: "pepe@gmail.com", password: 'pepitogrillo', type: 'consumer', token: null },
-      { name: "lolito@gmail.com", password: 'pepitogrillo', type: 'vendor', token: null },
-      { name: "manolo@gmail.com", password: 'pepitogrillo', type: 'consumer', token: null },
+      { name: "p", password: 'p', type: 'consumer', token: null },
+      { name: "a", password: 'a', type: 'farmer', token: null },
     ],
 
     //fake token from backend
@@ -20,21 +19,26 @@ export const usersModule = {
 
     validateUser(state, { email, password }) {
       state.users.filter(user => {
-        if (user.name === email && user.password === password) {
-          return (user.token = state.token, localStorage.setItem('access_token', state.token), console.log('correct user and password', router.push({name: 'home'})))
+        if (user.name === email && user.password === password && user.type === 'consumer') {
+          return (user.token = state.token, localStorage.setItem('access_token', state.token), console.log('correct user and password, redirecting to user page'))
         }
-      })
-      return
+        else if(user.name === email && user.password === password && user.type === 'farmer') 
+        {
+          return (user.token = state.token, localStorage.setItem('access_token', state.token), console.log('correct user and password, redirecting to farmer page'))
+        }
+        else {
+          return
+        }
+    })
     },
-
 
     removeToken: (state) => state.users.filter(user => {
       if (user.token != null) {
         return (localStorage.removeItem('access_token'), user.token = null, console.log('usuario logout'), router.push({name: 'home'}))
       }
-      return console.log('Fail');
-    }),
-  
+      return
+    })
+    
   },
 
 
@@ -44,8 +48,8 @@ export const usersModule = {
     validateUser({ commit }, { email, password }) {
       return new Promise((resolve, reject) => {
         commit('validateUser', { email, password })
-        resolve(res => console.log('user authenticated:', res))
-        reject(e => console.log('something wrong happend:', e))
+        resolve()
+        //reject(console.log('something wrong happend:'))
       })
     },
 
@@ -55,7 +59,7 @@ export const usersModule = {
   getters: {
     getUser: (state) => (email, password) => (state.filter(user => user.name === email && user.password === password)),
     getUsers: (state) => (state.users, console.log(state.users)),
-    getUsersTokenAndName: (state) => state.users.forEach(user => { console.log(user.name, user.token)}),
+    //getUsersTokenAndName: (state) => state.users.forEach(user => { console.log(user.name, user.token)}),
     getUsersLoggedIn: (state) => state.users.find(user => (user.token === state.token && localStorage.getItem('access_token') && user.token != null)) , 
   }
 }

@@ -5,6 +5,7 @@ import store from './store'
 import './registerServiceWorker'
 
 Vue.config.productionTip = false
+Vue.config.ignoredElements = [/^ion-/]
 
 new Vue({
   router,

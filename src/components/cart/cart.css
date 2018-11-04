@@ -2,15 +2,8 @@
     display: none; 
 }*/
 
-.container{
-    position: fixed;
-    top:0;
-    right:0;
-    font-size: 12   px;
-    color:#fff;
-    background-color: black;
-    max-height: 50vh;
-    overflow:hidden;
+h5{
+    display: inline-block;
 }
 
 
@@ -21,7 +14,7 @@
 
 
 p{
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 
@@ -36,9 +29,7 @@ li{
     padding:5px 20px;
 }
 
-.products{
-    overflow-y: scroll;
-}
+
 
 .product{
     border-bottom: 2px solid #fff;

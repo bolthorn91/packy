@@ -1,33 +1,100 @@
 export const productsModule = {
 state: {
-    products: [
-      { name: "Patatas", quantity: 0, price: 20, offer: true },
-      { name: "Puerros", quantity: 0, price: 30, offer: false },
-      { name: "Zanahorias", quantity: 0, price: 40, offer: true},
-      { name: "Tomates", quantity: 0, price: 10, offer: false },
-      { name: "Plátanos", quantity: 0, price: 20, offer: false },
-      { name: "Naranjas", quantity: 0, price: 5, offer: true },
-    ],
-  },
+    farms:[
+    { 
+      name: "Raimundo",
+      location: "Arucas",
+      description: "Gran variedad de papas",
+      date:"",
+      top: false,
+      packs: [
+        {
+          name: 'small',
+          number: 0,
+          price: 5,
+          },
+  
+          {
+          name: 'medium',
+          number: 0,
+          price: 8,
+          },
+  
+          {
+          name: 'large',
+          number: 0,
+          price: 12,
+          }
+      ],  
+      products: [
+        { name: "Patatas", weight: 5, price: 20, offer: true },
+        { name: "Puerros", weight: 5, price: 30, offer: false },
+        { name: "Zanahorias", weight: 5, price: 40, offer: true},
+        { name: "Tomates", weight: 5, price: 10, offer: false },
+        { name: "Plátanos", weight: 5, price: 20, offer: false },
+        { name: "Naranjas", weight: 5, price: 5, offer: true },
+        ],
+    },
+
+    
+    { 
+      name: "Bentayga",
+      location: "Tejeda",
+      description: "Gran variedad de montañas",
+      date:"",
+      top:true,
+      packs:[
+        {
+        name: 'small',
+        number: 0,
+        price: 5,
+        },
+
+        {
+        name: 'medium',
+        number: 0,
+        price: 8,
+        },
+
+        {
+        name: 'large',
+        number: 0,
+        price: 12,
+        }
+      ],
+      
+      products: [
+        { name: "Patatas", weight: 5, price: 20, offer: true },
+        { name: "Puerros", weight: 5, price: 30, offer: false },
+        { name: "Zanahorias", weight: 5, price: 40, offer: true},
+        { name: "Tomates", weight: 5, price: 10, offer: false },
+        { name: "Plátanos", weight: 5, price: 20, offer: false },
+        { name: "Naranjas", weight: 5, price: 5, offer: true },
+        ],
+    },
+
+  ],
+
+},
 
 
   mutations: {
-    addProduct: (state, obj) => {
-      state.products.forEach(product => {
-        if (product.name === obj.name) {
-        return product.quantity += 1
+    addPackage: (state, obj) => {
+      state.farms.forEach(farm => farm.packs.forEach(pack => {
+        if (pack.name === obj.pack.name && farm.name === obj.farm.name) {
+        return pack.number += 1
         }
-      })
+      }))
     },
 
 
-    subtractProduct: (state, obj) => {
-      state.products.forEach(product => {
-        if (product.name === obj.name && product.quantity > 0) {
-        return product.quantity -= 1
-        }
-      })
-    },
+    subtractPackage: (state, obj) => {
+      state.farms.forEach(farm => farm.packs.forEach(pack => {
+          if (pack.name === obj.pack.name && farm.name === obj.farm.name && pack.number > 0) {
+          return pack.number -= 1
+          }
+        }))
+      },
 
   },
 
@@ -38,27 +105,26 @@ state: {
 
 
   getters: {
-    getProducts: state => {
-      return state.products
-    },
+    getFarms: state => state.farms,
+    
 
     halfPricedProdcuts: state => {
-      const halfPricedProdcuts = state.products.map(product => {
+      const halfPricedProdcuts = state.farms.map(farm => {
         return {
-          name: product.name,
-          quantity: product.quantity,
-          price: product.price / 2
+          name: farm.name,
+          //weight: farm.weight,
+         // price: farm.price / 2
         }
       })
       return halfPricedProdcuts
     },
 
+    getPacksAdded: state => state.farms.forEach(farm => {
+      const newFarm = farm.packs//.packs.filter(pack => pack.number > 0)),
+      console.log(newFarm.forEach())      
+      return //newFarm.packs.filter(pack => pack.number > 0)
+    
+    }) 
 
-    getOfferProducts: state =>{
-      return state.products.filter((product) => product.offer === true)
-      }
-    },
-
-
-
+  }
 }

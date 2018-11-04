@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <div class="container">
+      <h1>Destacados</h1>
       <ul>
         <li v-for="product in offerProducts">
          <p>{{product.name}}</p> 
@@ -10,6 +11,7 @@
       </ul>
     </div>
   
+  <news-component/>
   </div>
 </template>
 

@@ -6,6 +6,10 @@ import login from './views/login.vue'
 import cart from './views/cart.vue'
 import logout from './components/logout/logout.vue'
 import news from './components/appHome/news/news.vue'
+import signup from './components/signup/signup.vue'
+import userForm from './components/signup/userForm/userForm.vue'
+import farmerForm from './components/signup/farmerForm/farmerForm.vue'
+
 
 
 Vue.use(Router)
@@ -45,6 +49,16 @@ export default new Router({
     path: '/logout',
     name: 'logout',
     component: logout
+  },
+    {
+    path: '/signup',
+    name: 'signup',
+    component: signup,
+    children: [
+      { path: 'customer', component: userForm},
+      { path: 'farmer', component: farmerForm},
+
+    ]
   },
   ]
 })

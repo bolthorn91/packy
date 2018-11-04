@@ -4,11 +4,14 @@ import store from '../../store'
 export default {
   name: 'cart',
   computed: {
-    products() {
-      return store.state.products;
+     /*products() {
+      return store.state.products
     },
-    users(){
-      return store.state.users;
+     getFarms(){
+      return store.getters.getFarms
+    },*/ 
+    packsAdded() {
+      return store.getters.getPacksAdded
     }
   },
 
@@ -18,12 +21,12 @@ export default {
   },
 
   methods: {
-    addProduct(obj) {
-      return store.commit('addProduct', obj)
+    addPackage(pack) {
+      return store.commit('addPackage', pack)
     },
 
-    subtractProduct(obj) {
-      return store.commit('subtractProduct', obj)
+    subtractPackage(pack) {
+      return store.commit('subtractPackage', pack)
     },
 
   },

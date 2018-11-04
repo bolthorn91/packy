@@ -16,15 +16,18 @@ export default {
 
   methods: {
 
-    async validateUser(email, password){
+    validateUser(email, password){
       store.dispatch('validateUser', { email, password })
-      .then(function () { 
-        if (localStorage.getItem('acces_token').value === store.state.token) {
-          console.log('user succesfull logged in')
-          return router.push({ name: 'home' })
+      .then(() =>{
+        const user = store.getters.getUsersLoggedIn
+        if (localStorage.getItem('access_token').value === store.state.token && user.type === 'consumer') {
+          return (console.log('user succesfull logged in'), router.push({ name: 'home' }))
+        }
+        else if (localStorage.getItem('access_token').value === store.state.token && user.type === 'farmer') {
+          return (console.log('farmer succesfull logged in'), router.push({ name: 'home' }))
         }
       })
-      .catch(()=> console.log('you could not login'))
+    .catch(()=> console.log('you could not login'))
     },      
 
   getUser: (_email, _password) => store.getters.getUser

@@ -4,9 +4,9 @@ import store from '../../../store'
 export default {
     name: 'newsComponent',
     computed: {
-      offerProducts() {
+      /*offerProducts() {
         return store.getters.getOfferProducts
-      },
+      },*/
     },
 
     

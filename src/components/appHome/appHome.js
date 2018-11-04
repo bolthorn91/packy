@@ -1,10 +1,9 @@
 import store from '../../store'
-import newsComponent from './news/news'
+import newsComponent from './news/news.vue'
 
 
 export default {
     name: 'appHome',
-    
     components: {
       newsComponent,
     },
