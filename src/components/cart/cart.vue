@@ -5,12 +5,16 @@
                 <h2 class="cross">X</h2>
         </div>
         <div class="products">
-            <p>me cago en to</p>
-        <div v-for="packs in packsAdded">
-            <p>Packs: {{packs}}</p>
-               <p>Packs: {{packs.name}}</p>
-               <p>Packs: {{packs.number}}</p>
+        <div v-for="farm in getFarms">
+            
+            <div v-for="pack in packsAdded(farm)" class="farm">
+            <p>Nombre de la Granja: <b>{{farm.name}}</b></p>
+            <p>Nombre del pack: <b>{{pack.name}}</b></p>
+            <p>Cantidad de packs: <b>{{pack.number}}</b></p>
+
             </div>
+        </div>
+
                 <h3 class='total'>TOTAL: </h3>
         </div>
         <div class="btns">

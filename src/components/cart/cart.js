@@ -6,11 +6,11 @@ export default {
   computed: {
      /*products() {
       return store.state.products
-    },
+    },*/
      getFarms(){
       return store.getters.getFarms
-    },*/ 
-    packsAdded() {
+    }, 
+    getPacksAdded() {
       return store.getters.getPacksAdded
     }
   },
@@ -28,6 +28,10 @@ export default {
     subtractPackage(pack) {
       return store.commit('subtractPackage', pack)
     },
+
+    packsAdded(farm){
+      return farm.packs.filter(pack => pack.number > 0)
+    }
 
   },
 

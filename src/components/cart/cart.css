@@ -14,7 +14,7 @@ h5{
 
 
 p{
-    /*display: inline-block;*/
+    display: inline-block;
 }
 
 
@@ -31,7 +31,13 @@ li{
 
 
 
-.product{
-    border-bottom: 2px solid #fff;
+.products{
+    margin: 0 auto;
+    max-width: 50%;
+    border: 3px solid black;
+}
+
+.farm{
+    border-bottom: 1px solid #eeeeee;
 }
 

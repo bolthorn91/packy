@@ -119,12 +119,17 @@ state: {
       return halfPricedProdcuts
     },
 
-    getPacksAdded: state => state.farms.forEach(farm => {
-      const newFarm = farm.packs//.packs.filter(pack => pack.number > 0)),
-      console.log(newFarm.forEach())      
-      return //newFarm.packs.filter(pack => pack.number > 0)
-    
+    getPacksAdded: state => state.farms.map(farm => {
+    return farm.packs.forEach(pack => {
+      if (pack.number > 0) {
+        return pack
+      }
     }) 
-
+      
+      }),
+ 
+    }  
   }
-}
+
+
+
